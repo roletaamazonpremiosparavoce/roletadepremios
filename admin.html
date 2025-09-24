@@ -294,8 +294,8 @@ const configuracoes = {
         { img: "assets/p6.png" }
     ],
     premioSorteado: 0,
-    duracaoAnimacao: 4000,
-    voltasRoleta: 10
+    duracaoAnimacao: 8000,
+    voltasRoleta: 20
 };
 
 // --- ELEMENTOS DOM ---
@@ -393,7 +393,7 @@ function girarRoleta() {
     function animar(timestamp){
         if(!inicioTempo) inicioTempo=timestamp;
         const progresso=(timestamp-inicioTempo)/duracao;
-        const ease=1-Math.pow(1-progresso,3);
+        const ease=1-Math.pow(1-progresso,5);
         anguloAtual=ease*anguloFinal;
         desenharRoleta();
         if(progresso<1) requestAnimationFrame(animar);
